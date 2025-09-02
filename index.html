@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Bibib!</title>
-
+    <title>Selamat Ulang Tahun, Sayang!</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
+    <!-- Memuat Google Fonts untuk tampilan yang lebih romantis -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ============================================== */
-        /* == BAGIAN CSS UNTUK HALAMAN UCAPAN (PAGE 1) == */
-        /* ============================================== */
+        /* Menggunakan font kustom */
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            transition: background 0.5s ease; /* Transisi untuk background */
         }
-
         .font-handwriting {
             font-family: 'Great Vibes', cursive;
         }
-
+        
+        /* Animasi untuk fade in */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         .fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
 
+        /* Animasi untuk lilin yang berkelip */
         @keyframes flicker {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.6;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
-
         #candle-flame {
             animation: flicker 1.5s infinite;
             transform-origin: bottom;
             cursor: pointer;
         }
 
+        /* Styling untuk scrollbar agar lebih estetik */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -63,158 +51,70 @@
             background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
-            background: #f472b6;
+            background: #f472b6; /* Warna pink */
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #ec4899;
         }
-
-        /* Menyembunyikan halaman kue animasi pada awalnya */
-        #animated-cake-screen {
-            display: none;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* ==================================================== */
-        /* == BAGIAN CSS UNTUK ANIMASI KUE (PAGE 2) == */
-        /* ==================================================== */
-        #cake {
-            display: block;
-            position: relative;
-            margin: -10em auto 0 auto;
-        }
-
-        .velas {
-            background: #ffffff;
-            border-radius: 10px;
-            position: absolute;
-            top: 228px;
-            left: 50%;
-            margin-left: -2.4px;
-            margin-top: -8.33333333px;
-            width: 5px;
-            height: 35px;
-            transform: translateY(-300px);
-            backface-visibility: hidden;
-            animation: in 500ms 6s ease-out forwards;
-        }
-
-        .velas:after,
-        .velas:before {
-            background: rgba(255, 0, 0, 0.4);
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2.22222222px;
-        }
-
-        .velas:after {
-            top: 25%;
-            left: 0;
-        }
-
-        .velas:before {
-            top: 45%;
-            left: 0;
-        }
-
-        .fuego {
-            border-radius: 100%;
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            margin-left: -2.6px;
-            width: 6.66666667px;
-            height: 18px;
-        }
-
-        .fuego:nth-child(1) {
-            animation: fuego 2s 6.5s infinite;
-        }
-        .fuego:nth-child(2) {
-            animation: fuego 1.5s 6.5s infinite;
-        }
-        .fuego:nth-child(3) {
-            animation: fuego 1s 6.5s infinite;
-        }
-        .fuego:nth-child(4) {
-            animation: fuego 0.5s 6.5s infinite;
-        }
-        .fuego:nth-child(5) {
-            animation: fuego 0.2s 6.5s infinite;
-        }
-
-        @keyframes fuego {
-            0%, 100% {
-                background: rgba(254, 248, 97, 0.5);
-                box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                background: rgba(255, 50, 0, 0.1);
-                box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-                transform: translateY(-20px) scale(0);
-            }
-        }
-
-        @keyframes in {
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .text {
-            color: #8b6a60;
-            font-family: "Lato", sans-serif;
-            font-weight: 300;
-            font-style: italic;
-            text-align: center;
-        }
-
-        .text h1 { /* Perbaikan dari kode asli */
-            font-size: 1.4em;
-        }
     </style>
 </head>
-
 <body class="bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-300 min-h-screen flex items-center justify-center p-4">
 
+    <!-- MUSIK ROMANTIS -->
+    <!-- PENTING: Ganti 'URL_MUSIK_ROMANTIS.mp3' dengan link langsung ke file MP3 Anda. -->
+    <!-- Anda bisa mengunggah file MP3 ke layanan seperti Catbox.moe atau hosting pribadi lalu salin link-nya ke sini -->
     <audio id="background-music" loop>
         <source src="URL_MUSIK_ROMANTIS.mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
+    <!-- LAYAR PEMBUKA -->
     <div id="initial-screen" class="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center text-white z-50 transition-opacity duration-1000">
-        <h1 class="font-handwriting text-5xl md:text-7xl mb-4">hai beibi..</h1>
-        <p class="text-lg md:text-2xl mb-8">Aku punya sesuatu untuk pacarku yang paling cantik ini</p>
+        <h1 class="font-handwriting text-5xl md:text-7xl mb-4">Hai Sayang..</h1>
+        <p class="text-lg md:text-2xl mb-8">Aku punya sesuatu untukmu</p>
         <button id="play-button" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
-            klick di cini bibib
+            Klik di Sini
         </button>
     </div>
 
+    <!-- KONTEN UTAMA (Awalnya tersembunyi) -->
     <main id="main-content" class="container mx-auto bg-white/80 backdrop-blur-sm p-6 md:p-10 rounded-2xl shadow-2xl max-w-4xl opacity-0 transition-opacity duration-1000" style="animation-delay: 0.5s;">
+        
+        <!-- Judul Utama -->
         <header class="text-center mb-8">
             <h1 class="font-handwriting text-5xl md:text-7xl text-pink-600">Happy Birthday, Cintaku!</h1>
         </header>
-
+        
+        <!-- Kue Ulang Tahun & Lilin Interaktif -->
         <section class="text-center mb-10">
             <div class="relative w-64 h-64 mx-auto">
+                <!-- Kue (SVG) -->
                 <svg viewBox="0 0 100 100" class="w-full h-full">
+                    <!-- Base Kue -->
                     <rect x="10" y="60" width="80" height="30" rx="5" fill="#f9a8d4" />
                     <rect x="15" y="40" width="70" height="25" rx="5" fill="#ec4899" />
+                    <!-- Lilin -->
                     <rect x="47" y="20" width="6" height="20" fill="#fef08a" />
-                    <path id="candle-flame" d="M50 10 C 55 15, 55 20, 50 25 C 45 20, 45 15, 50 10 Z" fill="#facc15" />
+                    <!-- Api Lilin (Interaktif) -->
+                    <path id="candle-flame" d="M50 10 C 55 15, 55 20, 50 25 C 45 20, 45 15, 50 10 Z" fill="#facc15"/>
                 </svg>
             </div>
+            <p id="wish-text" class="mt-4 text-gray-700 text-lg opacity-0 transition-opacity duration-1000">
+                Lilinnya sudah padam, make a wish ya! ✨
+            </p>
+            <p id="instruction-text" class="mt-2 text-pink-500 font-semibold">
+                Psst... coba tap api lilinnya deh!
+            </p>
         </section>
 
+        <!-- Surat Cinta (Long Text) -->
         <section class="mb-10 text-center">
             <h2 class="font-handwriting text-4xl md:text-5xl text-pink-500 mb-4">Sebuah Surat Untukmu...</h2>
             <div class="text-left bg-white/50 p-6 rounded-lg shadow-inner max-w-2xl mx-auto">
+                <!-- GANTI TEKS SURAT DI DALAM TAG <p> DI BAWAH INI -->
                 <p class="text-gray-800 leading-relaxed">
-                    Hai sayangku Alisha,
+                    Hai sayangku [Nama Pacar],
                     <br><br>
                     Selamat ulang tahun ya. Di hari yang spesial ini, aku cuma mau bilang betapa beruntungnya aku punya kamu di hidupku. Setiap momen sama kamu itu berharga, dari yang paling konyol sampai yang paling romantis.
                     <br><br>
@@ -229,121 +129,84 @@
             </div>
         </section>
 
-        <section class="mb-10">
+        <!-- Galeri Foto Kenangan -->
+        <section>
             <h2 class="font-handwriting text-4xl md:text-5xl text-pink-500 mb-6 text-center">Beberapa Kenangan Indah Kita</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- GANTI 'src' PADA SETIAP <img> DENGAN LINK FOTO ANDA -->
+                <!-- Unggah foto Anda ke imgbb.com atau layanan serupa, lalu salin link langsungnya -->
+                
+                <!-- Foto 1 -->
                 <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
                     <img src="https://placehold.co/400x400/f472b6/ffffff?text=Foto+1" alt="Kenangan 1" class="w-full h-full object-cover">
                 </div>
+                <!-- Foto 2 -->
                 <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
                     <img src="https://placehold.co/400x400/ec4899/ffffff?text=Foto+2" alt="Kenangan 2" class="w-full h-full object-cover">
                 </div>
+                <!-- Foto 3 -->
                 <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
                     <img src="https://placehold.co/400x400/d946ef/ffffff?text=Foto+3" alt="Kenangan 3" class="w-full h-full object-cover">
                 </div>
+                <!-- Foto 4 -->
+                <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
+                    <img src="https://placehold.co/400x400/c026d3/ffffff?text=Foto+4" alt="Kenangan 4" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 5 -->
+                <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
+                    <img src="https://placehold.co/400x400/a855f7/ffffff?text=Foto+5" alt="Kenangan 5" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 6 -->
+                <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105">
+                    <img src="https://placehold.co/400x400/9333ea/ffffff?text=Foto+6" alt="Kenangan 6" class="w-full h-full object-cover">
+                </div>
             </div>
         </section>
-
-        <section class="text-center">
-            <button id="show-cake-button" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                Ada satu kejutan lagi... Klik!
-            </button>
-        </section>
-
+        
     </main>
 
-    <div id="animated-cake-screen">
-        <div class="velas">
-            <div class="fuego"></div>
-            <div class="fuego"></div>
-            <div class="fuego"></div>
-            <div class="fuego"></div>
-            <div class="fuego"></div>
-        </div>
-        <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
-            <path fill="#a88679" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z">
-                <animate id="bizcocho_3" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1" begin="relleno_2.end" dur="0.3s" fill="freeze" values=" 
-                           M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z 
-                           ; 
-                           M173.667,411.567c-47.995,12.408-102.955,12.561-147.334,0 
- 		c-3.848-1.089-0.189-16.089,3.661-15.002c44.836,12.66,90.519,12.753,139.427,0.07 
- 		C173.293,395.631,177.541,410.566,173.667,411.567z 
-                           ; 
-                           M173.667,427.569c-49.795,0-101.101,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c46.385,0,97.539,0,147.334,0C177.668,411.567,177.667,427.569,173.667,427.569z 
-                           " />
-            </path>
-            <path fill="#8b6a60" d="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227 
- 		c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521 
- 		L100-178.521z">
-                <animate id="relleno_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_2.end" dur="0.5s" fill="freeze" values=" 
-                           M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227 
- 		c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521 
- 		L100-178.521z 
-                           ; 
-                           M100,267.257c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227 
- 		c0,19.143,0,57.43,0,76.574c0,10.151,0,40.606,0,40.606c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364 
- 		c0,0,0-30.455,0-40.606c0-19.145,0-57.432,0-76.576c0-11.057,0-44.225,0-44.225C96.636,268.763,98.142,267.257,100,267.257 
- 		L100,267.257z 
-                           ; 
-                           M93.928,405.433c-0.655,6.444-0.102,9.067,2.957,11.798c0,0,8.083,5.571,16.828,3.503 
- 		c18.629-4.406,43.813,6.194,50.792,7.791c14.75,3.375,9.162,6.867,9.162,6.867c-2.412,2.258-58.328,0-73.667,0l0,0 
- 		c-1.858,0-69.995,2.133-73.667,0c0,0-3.337-2.439,6.172-5.992c11.375-4.25,52.875,8.822,47.139-9.442 
- 		c-6.333-20.167,5.226-21.514,5.226-21.514c3.435-0.915,12.78-6.663,10.923-0.546L93.928,405.433z 
-                           ; 
-                           M102.242,427.569c5.348,0,14.079,0,17.462,0c0,0,17.026,0,27.504,0 
- 		c19.143,0,20.39-3.797,26.459,0c3,1.877,0,7.823,0,7.823c-2.412,2.258-58.328,0-73.667,0l0,0c-1.858,0-67.187,0-73.667,0 
- 		c0,0-4.125-4.983,0-7.823c5.201-3.58,16.085,0,23.725,0c8.841,0,20.762,0,20.762,0c3.686,0,8.597,0,19.511,0H102.242z 
-                           " />
-            </path>
-            <path fill="#a88679" d="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z">
-                <animate id="bizcocho_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1" begin="relleno_1.end" dur="0.5s" fill="freeze" values=" 
-                           M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z 
-                           ; 
-                           M173.434,445.393c-47.269,8.001-105.245,8.001-147.334,0c-3.929-0.747-0.692-16.543,3.243-15.824 
- 		c43.828,8.001,92.165,8.001,140.739,0C174.029,428.918,177.377,444.726,173.434,445.393z 
-                           ; 
-                           M173.667,449.514c-47.576-5.454-102.799-5.744-147.333,0c-3.966,0.512-3.938-15.297,0-16.002 
- 		c43.683-7.823,97.646-8.026,147.333,0C177.616,434.15,177.642,449.969,173.667,449.514z 
-                           ; 
-                           M173.667,451.394c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 
- 		c44.697,0,96.586,0,147.334,0C177.667,435.392,177.668,451.394,173.667,451.394z 
-                           " />
-            </path>
-            <path fill="#8b6a60" d="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512 
- 		c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628 
- 		C98.411-75.883,101.368-75.592,101.368-73.685z">
-                <animate id="relleno_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1" begin="bizcocho_1.end" dur="0.5s" fill="freeze" values=" 
-                           M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512 
- 		c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628 
- 		C98.411-75.883,101.368-75.592,101.368-73.685z 
-                           ; 
-                           M101.368,350.885c0,12.164,0,65.18,0,78.518c0,22.703,0-33.66,0-11.695c0,14.48,0,28.232,0,40.512 
- 		c0,1.753-2.958,1.847-2.958,0c0-12.68,0-26.277,0-40.402c0-21.982,0,31.66,0,11.695c0-13.027,0-65.992,0-78.627 
- 		C98.411,348.686,101.368,348.977,101.368,350.885z 
-                           ; 
-                           M128.38,447.567c37.626,6.312,39.303,13.658,26.833,12.833c-22.653-1.499-13.636-0.831-23.302-0.831 
- 		c-14.48,0-17.884,0-30.163,0c-2.087,0-2.068,0-3.915,0c-13.333,0-8.963,0-23.088,0c-11.668,0-14.062,5.995-27.532,1.164 
- 		c-12.629-4.529,38.667-3.167,46.833-17.333C100.077,432.94,105.546,443.736,128.38,447.567z 
-                           ; 
-                           M173.667,451.394c2.875,0,2.997,9.257,0,9.131c-22.662-0.956-32.09-0.956-41.756-0.956 
- 		c-14.48,0-17.884,0-30.163,0c-2.087,0-2.068,0-3.915,0c-13.333,0-8.963,0-23.088,0c-11.668,0-34.99-0.294-48.412,1.831 
- 		c-4.109,0.65-3.01-10.006,0-10.006C37.129,451.394,149.379,451.394,173.667,451.394z 
-                           " />
-            </path>
-            <path fill="#a88679" d="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0 
- 		C177.668,5.569,177.667,21.571,173.667,21.571z">
-                <animate id="bizcocho_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1" begin="2s" dur="0.8s" fill="freeze" values=" 
-                           M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0 
- 		C177.668,5.569,177.667,21.571,173.667,21.571z 
-                           ; 
-                           M173.667,459.569c-33.197,16.002-110.782,16.002-147.334,0c-3.664-1.604,1.614-15.617,5.337-14.153 
- 		c40.702,16.002,94.289,16.104,136.505,0.103C171.917,444.1,177.271,457.832,173.667,459.569z 
-                           ; 
-                           M171.817,475.571c-39.361-3.001-105.438-2.571-143.556,0c-3.991,0.27-7.377-14.736-3.387-15.014 
- 		c41.553-2.888,104.421-3.121,150.51-0.233C179.378,460.574,175.806,475.875,171.817,475.571z 
-                           ;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialScreen = document.getElementById('initial-screen');
+            const playButton = document.getElementById('play-button');
+            const mainContent = document.getElementById('main-content');
+            const music = document.getElementById('background-music');
+            const candleFlame = document.getElementById('candle-flame');
+            const wishText = document.getElementById('wish-text');
+            const instructionText = document.getElementById('instruction-text');
+
+            // Logika untuk memulai kejutan
+            playButton.addEventListener('click', () => {
+                // Mainkan musik
+                music.play().catch(error => {
+                    console.log("Autoplay musik dicegah oleh browser. Interaksi pengguna diperlukan.");
+                });
+
+                // Hilangkan layar pembuka
+                initialScreen.style.opacity = '0';
+                initialScreen.style.pointerEvents = 'none';
+
+                // Tampilkan konten utama dengan animasi fade-in
+                mainContent.classList.add('fade-in');
+                mainContent.style.opacity = '1';
+            });
+
+            // Logika untuk meniup lilin
+            candleFlame.addEventListener('click', () => {
+                // Hilangkan api dan instruksi
+                candleFlame.style.transition = 'opacity 0.5s';
+                candleFlame.style.opacity = '0';
+                instructionText.style.transition = 'opacity 0.5s';
+                instructionText.style.opacity = '0';
+
+                // Tampilkan pesan "make a wish" setelah api padam
+                setTimeout(() => {
+                    candleFlame.style.display = 'none';
+                    instructionText.style.display = 'none';
+                    wishText.style.opacity = '1';
+                }, 500); // 0.5 detik
+            });
+        });
+    </script>
+</body>
+</html>
