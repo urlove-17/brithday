@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sayang ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 20px;
+      color: #e91e63;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .cake {
+      position: relative;
+      margin: 40px auto;
+      width: 200px;
+      height: 150px;
+      background: #ff6f61;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .candle {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 50px;
+      background: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .flame {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, yellow 40%, orange 60%, transparent 70%);
+      border-radius: 50%;
+      animation: flicker 0.2s infinite;
+    }
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.2); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+    .gallery {
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 600px;
+    }
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    .message {
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    .music-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: #e91e63;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .music-btn:hover {
+      background: #ad1457;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Sayang 🎂</h1>
+
+  <div class="cake">
+    <div class="candle" onclick="makeWish()">
+      <div class="flame" id="flame"></div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <img src="foto1.jpg" alt="Kenangan 1">
+    <img src="foto2.jpg" alt="Kenangan 2">
+    <img src="foto3.jpg" alt="Kenangan 3">
+    <img src="foto4.jpg" alt="Kenangan 4">
+  </div>
+
+  <div class="message">
+    <p>
+      Sayang, di hari spesialmu ini aku ingin mengucapkan terima kasih karena selalu ada di sisiku. 
+      Semoga semua impianmu tercapai, kesehatan, kebahagiaan, dan cinta selalu menyertaimu. 
+      Aku selalu bangga dan bersyukur memilikimu ❤️.
+    </p>
+  </div>
+
+  <button class="music-btn" onclick="playMusic()">Putar Musik Romantis 🎶</button>
+  <audio id="bg-music" src="musik.mp3" loop></audio>
+
+  <script>
+    function makeWish() {
+      const flame = document.getElementById('flame');
+      flame.style.display = "none";
+      alert("Make a wish, sayang 💫❤️");
+    }
+
+    function playMusic() {
+      const music = document.getElementById("bg-music");
+      music.play();
+    }
+  </script>
+</body>
+</html>
