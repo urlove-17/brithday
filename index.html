@@ -1,146 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Sayang ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #ffdde1, #ee9ca7);
-      text-align: center;
-      color: #333;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-top: 20px;
-      color: #e91e63;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .cake {
-      position: relative;
-      margin: 40px auto;
-      width: 200px;
-      height: 150px;
-      background: #ff6f61;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    .candle {
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 50px;
-      background: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .flame {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle, yellow 40%, orange 60%, transparent 70%);
-      border-radius: 50%;
-      animation: flicker 0.2s infinite;
-    }
-    @keyframes flicker {
-      0% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.2); }
-      100% { transform: translateX(-50%) scale(1); }
-    }
-    .gallery {
-      margin: 30px auto;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      max-width: 600px;
-    }
-    .gallery img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    .message {
-      margin: 30px auto;
-      max-width: 600px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-    .music-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 25px;
-      background: #e91e63;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .music-btn:hover {
-      background: #ad1457;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, Sayang!</title>
+    
+    <!-- Memuat Tailwind CSS & jQuery -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!-- Memuat Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&family=Sacramento&family=Lato:ital@1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* FONT & ANIMASI DASAR */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-handwriting {
+            font-family: 'Great Vibes', cursive;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .hidden-page {
+            display: none;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
+
+        /* === CSS UNTUK HALAMAN 2: KUE ANIMASI SVG === */
+        #cake-page-content #cake {
+            display: block;
+            position: relative;
+            margin: -10em auto 0 auto;
+        }
+        #cake-page-content .velas {
+            background: #ffffff; border-radius: 10px; position: absolute; top: 228px; left: 50%;
+            margin-left: -2.4px; margin-top: -8.33333333px; width: 5px; height: 35px;
+            transform: translateY(-300px); backface-visibility: hidden; animation: in 500ms 1.5s ease-out forwards;
+        }
+        #cake-page-content .velas:after, #cake-page-content .velas:before {
+            background: rgba(255, 0, 0, 0.4); content: ""; position: absolute; width: 100%; height: 2.22222222px;
+        }
+        #cake-page-content .velas:after { top: 25%; left: 0; }
+        #cake-page-content .velas:before { top: 45%; left: 0; }
+        #cake-page-content .fuego {
+            border-radius: 100%; position: absolute; top: -20px; left: 50%; margin-left: -2.6px;
+            width: 6.66666667px; height: 18px;
+        }
+        #cake-page-content .fuego:nth-child(1) { animation: fuego 2s 2s infinite; }
+        #cake-page-content .fuego:nth-child(2) { animation: fuego 1.5s 2s infinite; }
+        #cake-page-content .fuego:nth-child(3) { animation: fuego 1s 2s infinite; }
+        #cake-page-content .fuego:nth-child(4) { animation: fuego 0.5s 2s infinite; }
+        #cake-page-content .fuego:nth-child(5) { animation: fuego 0.2s 2s infinite; }
+        @keyframes fuego {
+            0%, 100% { background: rgba(254, 248, 97, 0.5); box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2); transform: translateY(0) scale(1); }
+            50% { background: rgba(255, 50, 0, 0.1); box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2); transform: translateY(-20px) scale(0); }
+        }
+        @keyframes in { to { transform: translateY(0); } }
+        #cake-page-content .cake-text {
+            color: #8b6a60; font-family: "Sacramento", cursive; text-align: center;
+            position: absolute; bottom: 20px; left:0; right:0;
+        }
+        #cake-page-content .cake-text h1 { font-size: 2.5em; margin-bottom: 0; }
+        #cake-page-content .cake-text p { font-size: 2em; margin-top: -15px; }
+
+        /* === CSS UNTUK HALAMAN 4: MAKE A WISH === */
+        #wish-page { background-color: #1e1934; }
+        #wish-page .wish-message {
+            position: fixed; margin: 0 auto; bottom: 5%; left: 0; right: 0; width: 12em; text-align: center;
+            font-size: 2.5em; font-weight: 100; font-family: "Sacramento", cursive; letter-spacing: 0.1em;
+            color: white; text-shadow: 0 0 20px black; opacity: 0.8;
+        }
+        #wish-page #glow {
+            position: absolute; left: calc(50% - .1em); bottom: calc(35% + 9em); width: 0.2em;
+            height: 0.2em; border-radius: 100%; opacity: 0.15;
+        }
+        #wish-page #candle {
+            position: absolute; left: calc(50% - .75em); bottom: 35%; width: 1.5em; height: 10em;
+            overflow: hidden; transform: scale(1.5);
+        }
+        #wish-page #candle::before {
+            position: absolute; bottom: 0; left: 8%; content: ""; width: 84%; height: 80%;
+            background: linear-gradient(whitesmoke 0, #1e1934 125%); border-radius: 0.25em;
+            box-sizing: border-box; border: 1px solid #333;
+        }
+        #wish-page #top { position: absolute; margin: 0; padding: 0; width: 100%; height: 2em; background-color: transparent; }
+        #wish-page #top #knot { position: absolute; bottom: 0; left: calc(50% - .05em); height: 0.5em; width: 0.1em; background-color: #0f3146; }
+        #wish-page #top .smoke { position: absolute; opacity: 0; border-radius: 100%; }
+        #wish-page #top .smoke:nth-child(1) { bottom: 0.1em; left: calc(50% - .5em); height: 0.5em; width: 0.5em; background-color: silver; }
+        #wish-page #top .smoke:nth-child(2) { bottom: 0.6em; left: 50%; height: 0.6em; width: 0.6em; background-color: lightgray; animation-delay: 0.2s; }
+        #wish-page #top .smoke:nth-child(3) { bottom: 1.1em; left: 20%; height: 0.3em; width: 0.3em; background-color: whitesmoke; animation-delay: 0.3s; }
+        #wish-page #top #flame {
+            position: absolute; bottom: 0.15em; width: 1.5em; height: 1.6em; background-color: #ffee86;
+            border-radius: 100%; box-shadow: inset 0 0 0 0.1em #ffee86; transform: rotateY(30deg); cursor: pointer;
+        }
+        #wish-page #top #flame::after {
+            position: absolute; content: ""; width: 0.7em; height: 0.9em; bottom: 10%; left: calc(50% - .35em);
+            background-color: #ff3200; border-radius: 100%; animation: burnInner 1.5s ease-in-out infinite;
+        }
+        #wish-page #top #flame:hover { transition: all 0.1s ease-in-out; background-color: yellow; }
+        #wish-page #top #flame:hover::after { background-color: red; }
+        @keyframes glow { 0%, 100% { box-shadow: 0 0 1.5em 2.2em rgba(255, 246, 162, 0.75); } 50% { box-shadow: 0 0 1.5em 2em rgba(255, 246, 162, 0.6); } }
+        @keyframes burn { 0%, 100% { height: 1.7em; transform: rotateY(30deg); } 50% { height: 1.3em; transform: rotateY(0deg); opacity: 0.9; } }
+        @keyframes burnInner { 0%, 100% { height: 0.9em; transform: rotateX(0deg); } 50% { height: 0.8em; transform: rotateX(30deg); } }
+        @keyframes puff { 100% { transform: rotateY(-30deg); opacity: 0; } }
+        @keyframes puff-bubble { 0% { opacity: 0; transform: scale(1, 1); } 50% { opacity: 1; transform: scale(1.2, 1.2); } 100% { opacity: 0; transform: scale(0.8, 0.8); } }
+        #wish-page .glow { animation: glow 3s ease-in-out infinite; }
+        #wish-page .burn { animation: burn 1.5s ease-in-out infinite; }
+        #wish-page .puff { animation: puff 0.3s ease-in-out forwards; }
+        #wish-page .puff-bubble { animation: puff-bubble 0.75s ease-in-out forwards; }
+        #wish-page .stripe {
+            position: absolute; left: -0.25em; width: 2em; height: 0.25em; background-color: #ff4b6f;
+            transform: rotate(25deg); border-radius: 100%; box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.1);
+        }
+        #wish-page .stripe:nth-child(1) { top: 2.7em; }
+        #wish-page .stripe:nth-child(2) { top: 4.2em; opacity: 0.9; }
+        #wish-page .stripe:nth-child(3) { top: 5.7em; opacity: 0.73; }
+        #wish-page .stripe:nth-child(4) { top: 7.2em; opacity: 0.65; }
+        #wish-page .stripe:nth-child(5) { top: 8.7em; opacity: 0.6; }
+
+    </style>
 </head>
-<body>
-  <h1>🎉 Happy Birthday Sayang 🎂</h1>
+<body class="bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-300">
 
-  <div class="cake">
-    <div class="candle" onclick="makeWish()">
-      <div class="flame" id="flame"></div>
+    <!-- MUSIK ROMANTIS -->
+    <audio id="background-music" loop>
+        <source src="URL_MUSIK_ROMANTIS.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- HALAMAN 1: PEMBUKA -->
+    <div id="initial-screen" class="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center text-white z-50 transition-opacity duration-1000">
+        <h1 class="font-handwriting text-5xl md:text-7xl mb-4">Hai Sayang..</h1>
+        <p class="text-lg md:text-2xl mb-8">Aku punya sesuatu untukmu</p>
+        <button id="play-button" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+            Klik di Sini
+        </button>
     </div>
-  </div>
 
-  <div class="gallery">
-    <img src="foto1.jpg" alt="Kenangan 1">
-    <img src="foto2.jpg" alt="Kenangan 2">
-    <img src="foto3.jpg" alt="Kenangan 3">
-    <img src="foto4.jpg" alt="Kenangan 4">
-  </div>
+    <!-- HALAMAN 2: KUE ANIMASI SVG -->
+    <div id="cake-page" class="hidden-page min-h-screen flex flex-col items-center justify-center p-4">
+        <div id="cake-page-content" class="text-center relative h-[500px] w-full max-w-md">
+            <div class="velas">
+                <div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div>
+            </div>
+            <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
+                <path fill="#a88679" d="M173.667-13.94... (SVG Path Data Disingkat) ...z"><animate id="bizcocho_3" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1" begin="relleno_2.end" dur="0.3s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <path fill="#8b6a60" d="M100-178.521... (SVG Path Data Disingkat) ...z"><animate id="relleno_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_2.end" dur="0.5s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <path fill="#a88679" d="M173.667-15.929... (SVG Path Data Disingkat) ...z"><animate id="bizcocho_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1" begin="relleno_1.end" dur="0.5s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <path fill="#8b6a60" d="M101.368-73.685... (SVG Path Data Disingkat) ...z"><animate id="relleno_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1" begin="bizcocho_1.end" dur="0.5s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <path fill="#a88679" d="M173.667,21.571... (SVG Path Data Disingkat) ...z"><animate id="bizcocho_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1" begin="0.5s" dur="0.8s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <path fill="#fefae9" d="M104.812,113.216... (SVG Path Data Disingkat) ...z"><animate id="crema" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_3.end" dur="2s" fill="freeze" values="... (SVG Animate Values Disingkat) ..." /></path>
+                <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
+            </svg>
+            <div class="cake-text">
+                <h1>happy birthday!</h1>
+                <p>[Nama Pacar]</p>
+            </div>
+        </div>
+        <button id="goto-main-content" class="mt-8 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Lanjut</button>
+    </div>
 
-  <div class="message">
-    <p>
-      Sayang, di hari spesialmu ini aku ingin mengucapkan terima kasih karena selalu ada di sisiku. 
-      Semoga semua impianmu tercapai, kesehatan, kebahagiaan, dan cinta selalu menyertaimu. 
-      Aku selalu bangga dan bersyukur memilikimu ❤️.
-    </p>
-  </div>
+    <!-- HALAMAN 3: SURAT & GALERI -->
+    <div id="main-content" class="hidden-page min-h-screen flex items-center justify-center p-4">
+        <main class="container mx-auto bg-white/80 backdrop-blur-sm p-6 md:p-10 rounded-2xl shadow-2xl max-w-4xl">
+            <header class="text-center mb-8"><h1 class="font-handwriting text-5xl md:text-7xl text-pink-600">Happy Birthday, Cintaku!</h1></header>
+            <section class="mb-10 text-center">
+                <h2 class="font-handwriting text-4xl md:text-5xl text-pink-500 mb-4">Sebuah Surat Untukmu...</h2>
+                <div class="text-left bg-white/50 p-6 rounded-lg shadow-inner max-w-2xl mx-auto">
+                    <p class="text-gray-800 leading-relaxed">
+                        Hai sayangku [Nama Pacar],<br><br>
+                        Selamat ulang tahun ya. Di hari yang spesial ini, aku cuma mau bilang betapa beruntungnya aku punya kamu di hidupku. Setiap momen sama kamu itu berharga, dari yang paling konyol sampai yang paling romantis.<br><br>
+                        Kamu itu orang yang luar biasa, dan aku harap di usiamu yang baru ini, semua mimpi dan harapanmu bisa tercapai. Semoga kamu selalu sehat, bahagia, dan dikelilingi orang-orang yang sayang sama kamu, terutama aku hehe.<br><br>
+                        Terima kasih udah jadi pasangan yang terbaik. Aku sayang banget sama kamu, lebih dari yang bisa diungkapkan kata-kata.<br><br>
+                        Love you always,<br>[Nama Kamu] ❤️
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h2 class="font-handwriting text-4xl md:text-5xl text-pink-500 mb-6 text-center">Beberapa Kenangan Indah Kita</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/f472b6/ffffff?text=Foto+1" alt="Kenangan 1" class="w-full h-full object-cover"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/ec4899/ffffff?text=Foto+2" alt="Kenangan 2" class="w-full h-full object-cover"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/d946ef/ffffff?text=Foto+3" alt="Kenangan 3" class="w-full h-full object-cover"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/c026d3/ffffff?text=Foto+4" alt="Kenangan 4" class="w-full h-full object-cover"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/a855f7/ffffff?text=Foto+5" alt="Kenangan 5" class="w-full h-full object-cover"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105"><img src="https://placehold.co/400x400/9333ea/ffffff?text=Foto+6" alt="Kenangan 6" class="w-full h-full object-cover"></div>
+                </div>
+            </section>
+            <div class="text-center mt-10">
+                <button id="goto-wish-page" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Satu kejutan terakhir...</button>
+            </div>
+        </main>
+    </div>
 
-  <button class="music-btn" onclick="playMusic()">Putar Musik Romantis 🎶</button>
-  <audio id="bg-music" src="musik.mp3" loop></audio>
+    <!-- HALAMAN 4: MAKE A WISH -->
+    <div id="wish-page" class="hidden-page fixed inset-0 z-50">
+        <h1 class="wish-message">Blow the candle</h1>
+        <div class="glow" id="glow"></div>
+        <div id="candle">
+            <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+            <div id="top">
+                <div class="smoke"></div><div class="smoke"></div><div class="smoke"></div>
+                <div id="knot"></div>
+                <div class="burn" id="flame"></div>
+            </div>
+        </div>
+    </div>
 
-  <script>
-    function makeWish() {
-      const flame = document.getElementById('flame');
-      flame.style.display = "none";
-      alert("Make a wish, sayang 💫❤️");
-    }
+    <script>
+        $(document).ready(function() {
+            // Definisikan semua elemen
+            const initialScreen = $('#initial-screen');
+            const cakePage = $('#cake-page');
+            const mainContent = $('#main-content');
+            const wishPage = $('#wish-page');
+            const music = document.getElementById('background-music');
 
-    function playMusic() {
-      const music = document.getElementById("bg-music");
-      music.play();
-    }
-  </script>
+            // Tombol 1: Memulai kejutan
+            $('#play-button').on('click', function() {
+                music.play().catch(e => console.log("Autoplay dicegah"));
+                initialScreen.fadeOut(500, function() {
+                    cakePage.removeClass('hidden-page').fadeIn(500);
+                });
+            });
+
+            // Tombol 2: Dari Kue ke Surat
+            $('#goto-main-content').on('click', function() {
+                cakePage.fadeOut(500, function() {
+                    mainContent.removeClass('hidden-page').fadeIn(500);
+                });
+            });
+
+            // Tombol 3: Dari Surat ke Make a Wish
+            $('#goto-wish-page').on('click', function() {
+                mainContent.fadeOut(500, function() {
+                    wishPage.removeClass('hidden-page').fadeIn(500);
+                });
+            });
+
+            // Logika untuk Lilin Make a Wish
+            var flame = $("#wish-page #flame");
+            var txt = $("#wish-page .wish-message");
+            flame.on('click', function () {
+                flame.removeClass("burn").addClass("puff");
+                $("#wish-page .smoke").each(function () {
+                    $(this).addClass("puff-bubble");
+                });
+                $("#wish-page #glow").remove();
+                txt.hide().html("i wish you happy birthday").delay(750).fadeIn(300);
+                $("#wish-page #candle").animate({ opacity: ".5" }, 100);
+            });
+        });
+    </script>
 </body>
 </html>
+
